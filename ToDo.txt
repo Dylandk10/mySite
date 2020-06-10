@@ -1,0 +1,7 @@
+TODO
+1) make square wars vertical [DONE]
+2) finish progamming project section on index [DONE]
+3) add a highscores page
+4) add django backend for server [DONE]
+5) build out MySql database
+6) add bomb drop for bosses in square wars

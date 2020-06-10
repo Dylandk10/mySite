@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Dylan Kelly Webpage</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="keywords" content="Dylan Kelly, Main Dylan Kelly">
+		<meta name="description" content="Dylan Kelly Home Page">
+		<link rel="stylesheet" type="text/css" href="{% static 'mainwebsite/index.css' %}">
+
+
+		</head>
+	<body>
+		<div id="wrapper">
+		  <header>
+			<h1>Dylan Kelly</h1>
+			<div id="tag">Programmer, Filmmaker, SongWriter, ScreenWriter</div>
+		  </header>
+		  <nav>
+			<ul>
+				<li><a href="{%url 'mainpage-home' %}">Home</a></li>
+			  <li><a href="{%url 'mainpage-home' %}">Projects</a></li>
+			  <li><a href="{%url 'mainpage-squareWars' %}">Sqaure Wars</a></li>
+			  <li><a href="{%url 'mainpage-contact' %}">Contact</a></li>
+			</ul>
+		  </nav>
+		  <main>
+			 <figure id="pictureMe">
+				<img src=" {% static 'mainwebsite/pictures/me.jpg' %}" width="310" height="400" alt="Dylan Kelly" id="pictureMePic">
+				<figcaption>Dylan Kelly (me)</figcaption></figcaption>
+			 </figure>
+			<h2 id="welcomeHead">Welcome to my Site!</h2>
+			<p>
+				Hello! My name is Dylan Kelly, currently a student at Towson University majoring in Computer Information Systems.
+				This is my portfolio website hand-coded by me using Javascript, HTML, CSS, jQuery, python, Django and MySQL. Feel free
+				to browse about my website and explore some personal coding projects.
+			</p>
+			<br>
+			<h2>Breif Introduction</h2>
+			<p id="about">
+				I first discovered programming when I was 16 years old, I had written some Java private servers for a online game.
+				I did not program again until I was about 21 years old. This is when I started to take my programming skills
+				seriously. I began writing websites and web-apps. I later returned to school to finish my degree. Now I mostly program in
+				Python, JavaScript, Java, C, and Shell. When I am not programming I enjoy filmmaking, songwriting and writing screenplays.
+				I believe in creativity and logic in every aspect of life, both halfs of the brain are equal and I want experience it all.
+				Feel free to reach out and enjoy my site. Add me on github <a href="https://github.com/Dylandk10" target="_blank">Click here.</a>
+				All of the code for this website and all my projects can be found on my github page. Enjoy.
+			</p>
+			<br>
+			<br>
+			<br>
+
+			<div id="projects">
+				<h2>Programming Projects!</h2>
+				<h5>Click on picture to read more about he project</h4>
+
+				<!--
+					id that end with C are for the pic and T is the corrosponding information id
+				-->
+				<figure class="projectPic">
+					<img src="{% static 'mainwebsite/pictures/email-sender.jpg' %}"  alt="java email sender" id="emailSenderC" class="projectPicPic">
+					<figcaption>Java server and client for email automation</figcaption>
+				</figure>
+				<div id="emailSenderT">
+					A Java Server and Client meant for sending emails automatically. The program reads a txt or xlm file then
+					loads all the emails and can send off each email one at a time during a certain interval.
+					Written in Java. Review my code <a href="https://github.com/Dylandk10/Email-sender" target="_blank">Click here.</a>
+				</div>
+
+				<figure class="projectPic">
+					<img src="{% static 'mainwebsite/pictures/NodeWebApp.jpg' %}"  alt="node web app" id="nodeAppC" class="projectPicPic">
+					<figcaption>Node.js web application</figcaption>
+				 </figure>
+				 <div id="nodeAppT">
+					A Node.js web-application that allows users to upload a picture of their favorite restaurant and rate it.
+					The web-app allows you to see restaurants in a certain area. I never fully tested it online but worked locally.
+					Written in, JavaScript, Node.js and mySQL. Review my code <a href="https://github.com/Dylandk10/web-app" target="_blank">Click here.</a>
+				 </div>
+
+				  <figure class="projectPic">
+					<img src="{% static 'mainwebsite/pictures/pythonFileAuto.jpg' %}" alt="python file automation" id="pythonFileC" class="projectPicPic">
+					<figcaption>python file automation</figcaption>
+				 </figure>
+				 <div id="pythonFileT">
+					A python project used to manage my files for my Java game. This program would organize files, sort data in the files
+					move files to correct locations and keep track of highscores. Written in Python and Shell.<a href="https://github.com/Dylandk10/characterFileSearch" target="_blank">Click here.</a>
+				 </div>
+
+				 <figure class="projectPic">
+					<img src="{% static 'mainwebsite/pictures/javaGameServer.jpg' %}"  alt="Java game server" id="javaGameC" class="projectPicPic">
+					<figcaption>Java Game Server </figcaption>
+				 </figure>
+				 <div id="javaGameT">
+					A Java Game server written for sqaure wars. It was the same game but written in Java instead of JavaScript. This game
+					also used python to manage player files since I didn't use a database. Written in Java (Frontend and backend) and python to manage files.
+					<a href="https://github.com/Dylandk10/GameFileHolder" target="_blank">Click here.</a>
+				 </div>
+
+				 <figure class="projectPic">
+					<img src="{% static 'mainwebsite/pictures/square-wars.png' %}"  alt="Dylan Kelly Programming" id="squareWarsC" class="projectPicPic">
+					<figcaption>Square Wars!</figcaption>
+				 </figure>
+				 <div id="squareWarsT">
+					Sqaure wars is a web based game written in JavaScript. I have three versions of the game. The first version was messy so v2 cleaned the code
+					and added bosses. The third version of the game fixed many known bugs and had faster rendering time. In fact you can play the game now on this
+					Website! Have fun and goodLuck!
+				 </div>
+				 <p>
+					Check out my github page for all my other projects that aren't on this webpage!
+				 </p>
+			 </div>
+
+			</main>
+
+			<footer>
+				Copyright &copy; Dylan Kelly 2020
+			</footer>
+		</div>
+	</body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="{% static 'mainwebsite/js/index-script.js' %}" type="text/javascript"></script>
+</html>
