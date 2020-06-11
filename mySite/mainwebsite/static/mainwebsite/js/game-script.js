@@ -1,8 +1,8 @@
-var xxx, enemy, enemys, bullet, bullets, boss, gameHandler;
+var xxx, enemy, enemys, bullet, bullets, boss, gameHandler, bombs;
 enemys = [];
 bullets = [];
 boss = [];
-
+bombs = [];
 var gamePlaying;
 
 var startGame = () => {
@@ -46,6 +46,14 @@ var myGameArea = {
     document.getElementById("scoreMenu").style.display = "block";
     document.getElementById("scoreMenu").style.visibility = "visible";
     document.getElementById('yourScore').textContent = xxx.killCount;
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if(xhttp.readyState == 4 && this.status == 200) {
+        console.log(xhttp.responseText);
+      }
+    }
+    xhttp.open("GET", './../requestHighScore', true);
+    xhttp.send("" + xxx.killCount);
   },
 
   everyInterval: function(n) {
@@ -144,9 +152,9 @@ class BossNPC extends Npc {
 			this.color = 'GreenYellow';
 		} else {
 			this.health = 0;
-			this.x = undefined;
-			this.y = undefined;
 			boss.slice(boss.indexOf(this, boss.length));
+      this.x = undefined;
+      this.y = undefined;
 		}
 	}
 }
@@ -154,7 +162,7 @@ class BossNPC extends Npc {
 class Bomb {
   constructor(width, height, x, y, color) {
     this.width = width;
-    this height = height;
+    this.height = height;
     this.x = x;
     this.y = y;
   }
@@ -166,9 +174,14 @@ class Bomb {
   newPos() {
     this.x += this.speedX;
   }
+  explode() {
+    enemys = [];
+    boss = [];
+    var ctx = myGameArea.context;
+    ctx.font = "30px Arial";
+    ctx.fillText("Boom!", 300, 150);
+  }
 }
-
-
 
 
 
@@ -218,12 +231,13 @@ class Game_Handler {
 	}
 
 
+  //WORK ON BOSS CRASH HANDLING SAYS CANT WORK WITH UNDEFINED?
 	checkCrashHandleBoss() {
 		//crash handling...Boss no points for bosses...
 		for(var i = 0; i < bullets.length; i++) {
 			for(var j = 0; j < boss.length; j++) {
 				if(bullets[i].crashWith(boss[j]) && boss[j].x != undefined && boss[j].y != undefined) {
-          bombSpawn();
+          this.bombSpawn(boss[j]);
 					bullets.splice(bullets.indexOf(bullets[j], bullets.length));
 					boss[j].calcHealth();
 				}
@@ -231,10 +245,19 @@ class Game_Handler {
 		}
 	}
 
-  bombSpawn() {
+  bombSpawn(boss) {
     var randomNum = Math.random();
-    if(randomNum < .15)
-
+    if(randomNum < .90)
+      bombs.push(new Bomb(5, 5, boss.x, boss.y, 'red'));
+  }
+  updateBomb() {
+    for(var i = 0; i < bombs.length; i++) {
+      if(bombs[i].x < 0)
+        bombs.slice(bombs.indexOf(bombs[i]), boms.length);
+      bombs[i].x -= .5;
+      bombs[i].newPos();
+      bombs[i].update();
+    }
   }
 
 	spawnBullet() {
@@ -382,9 +405,9 @@ var updateGameArea = () => {
 	gameHandler.updateEnemies();
     //update player
 	xxx.checkPosition();
-    xxx.newPos();
-    xxx.update();
-    gameHandler.updateBullets();
+  xxx.newPos();
+  xxx.update();
+  gameHandler.updateBullets();
 
 
 	gameHandler.updateBoss();
