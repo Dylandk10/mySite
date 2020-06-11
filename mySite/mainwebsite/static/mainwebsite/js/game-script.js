@@ -46,14 +46,7 @@ var myGameArea = {
     document.getElementById("scoreMenu").style.display = "block";
     document.getElementById("scoreMenu").style.visibility = "visible";
     document.getElementById('yourScore').textContent = xxx.killCount;
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-      if(xhttp.readyState == 4 && this.status == 200) {
-        console.log(xhttp.responseText);
-      }
-    }
-    xhttp.open("GET", './../requestHighScore', true);
-    xhttp.send("" + xxx.killCount);
+    sendAjax(xxx.killCount);
   },
 
   everyInterval: function(n) {
@@ -70,6 +63,19 @@ var myGameArea = {
   }
 }
 
+//send to highscore
+function sendAjax(killCount) {
+  $.ajax({
+  url: './../requestHighScore',
+  data: {
+    'score': killCount
+  },
+  dataType: 'json',
+  success: function (data) {
+    console.log(data);
+  }
+  });
+}
 
 
 //---------------------------------------------------------------------------------------------------------

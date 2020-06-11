@@ -13,6 +13,7 @@ def contact(request):
 	return render(request, 'mainwebsite/contact.html')
 
 def requestHighScore(request):
-	print(request.GET)
+	value = list(request.GET.values())[0]
+	print(value)
 	response = 'true'
 	return HttpResponse(response)
