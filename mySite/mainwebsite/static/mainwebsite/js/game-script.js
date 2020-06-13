@@ -72,7 +72,10 @@ function sendAjax(killCount) {
   },
   dataType: 'json',
   success: function (data) {
-    console.log(data);
+    if(data.toString() == 'true')
+      console.log("true");
+    else
+      console.log("false");
   }
   });
 }
@@ -253,7 +256,7 @@ class Game_Handler {
 
   bombSpawn(boss) {
     var randomNum = Math.random();
-    if(randomNum < .90)
+    if(randomNum < .15)
       bombs.push(new Bomb(5, 5, boss.x, boss.y, 'red'));
   }
   updateBomb() {
