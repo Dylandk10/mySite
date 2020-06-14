@@ -5,7 +5,7 @@ class Database_Manager:
         self.all_entries = HighScores.objects.all()
     def add_highScore(self, user_name, user_score):
         new_entry = HighScores.objects.create(name=user_name, score=user_score)
-        HighScore.add(new_entry)
+        new_entry.save()
         if self.all_entries.count() > 10:
             #to keep the rows at 10 for only having 10 highscores
             last_entry = HighScores.objects.order_by('score')[11]
@@ -16,7 +16,6 @@ class Database_Manager:
         #make a file for me to hold
         if self.all_entries.count() == 0:
             new_entry = HighScores.objects.create(name="Dylan Kelly", score=user_score)
-            new_entry.add(new_entry)
             new_entry.save()
         print(self.all_entries.count())
         #if there isnt enough highscores returntrue

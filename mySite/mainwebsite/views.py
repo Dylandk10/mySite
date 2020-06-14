@@ -17,3 +17,11 @@ def requestHighScore(request):
 	database_handler = Database_Manager()
 	response = database_handler.compare(value)
 	return HttpResponse(response)
+
+def updateHighScores(request):
+	score = list(request.GET.values())[0]
+	name = list(request.GET.values())[1]
+	database_handler = Database_Manager()
+	database_handler.add_highScore(name, score)
+	return HttpResponse('true')
+	

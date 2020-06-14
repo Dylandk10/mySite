@@ -46,7 +46,7 @@ var myGameArea = {
     document.getElementById("scoreMenu").style.display = "block";
     document.getElementById("scoreMenu").style.visibility = "visible";
     document.getElementById('yourScore').textContent = xxx.killCount;
-    sendAjax(xxx.killCount);
+    sendScoreAjax(xxx.killCount);
   },
 
   everyInterval: function(n) {
@@ -64,7 +64,7 @@ var myGameArea = {
 }
 
 //send to highscore
-function sendAjax(killCount) {
+function sendScoreAjax(killCount) {
   $.ajax({
   url: './../requestHighScore',
   data: {
@@ -73,12 +73,27 @@ function sendAjax(killCount) {
   dataType: 'json',
   success: function (data) {
     if(data.toString() == 'true')
-      console.log("true");
-    else
-      console.log("false");
-  }
+      document.getElementById("highMenu").style.display = "inline";
+    }
   });
 }
+
+function sendToHighScoresAjax(name) {
+  $.ajax({
+  url: './../updateHighScores',
+  data: {
+    'score': xxx.killCount,
+    'name': name
+  },
+  dataType: 'json',
+  success: function (data) {
+      document.getElementById("nameField").style.display = "none";
+      document.getElementById("highScoreBtn").style.display = "none";
+      document.getElementById("highScoreTitle").textContent = "Added to highscores!";
+    }
+  });
+}
+
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -440,4 +455,9 @@ document.getElementById('gameBtn').addEventListener("click", () => {
 		document.getElementById('gameMenu').style.display = 'none';
 		startGame();
 	}
+});
+
+document.getElementById("highScoreBtn").addEventListener("click", () => {
+  var name = document.getElementById("nameField").value;
+  sendToHighScoresAjax(name);
 });
