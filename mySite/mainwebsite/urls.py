@@ -6,5 +6,6 @@ urlpatterns = [
     path('squareWars/', views.squareWars, name='mainpage-squareWars'),
     path('contact/', views.contact, name='mainpage-contact'),
     path('requestHighScore/', views.requestHighScore, name="high-score-request"),
-    path('updateHighScores', views.updateHighScores, name="highscore-update")
+    path('updateHighScores', views.updateHighScores, name="highscore-update"),
+    path('highScores', views.highScores, name='mainpage-highScores')
 ]

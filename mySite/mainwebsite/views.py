@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .databaseManager import Database_Manager
+from .models import HighScores
 
 # Function based views
 def home(request):
@@ -24,4 +25,9 @@ def updateHighScores(request):
 	database_handler = Database_Manager()
 	database_handler.add_highScore(name, score)
 	return HttpResponse('true')
-	
+
+def highScores(request):
+	content = {
+		'model': HighScores.objects.all()
+	}
+	return render(request, 'mainwebsite/highScores.html', content)

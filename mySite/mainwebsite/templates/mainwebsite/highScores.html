@@ -7,7 +7,7 @@
 		<meta name="keywords" content="Dylan Kelly, contact Dylan Kelly">
 		<meta name="description" content="Dylan Kelly contact Page">
 		<meta name="viewport"content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" type="text/css" href="{% static 'mainwebsite/contact.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'mainwebsite/highScores.css' %}">
 		</head>
 	<body>
 		<div id="wrapper">
@@ -21,20 +21,23 @@
 			  <li><a href="{%url 'mainpage-home' %}">Projects</a></li>
 			  <li><a href="{%url 'mainpage-squareWars' %}">Sqaure Wars</a></li>
 			  <li><a href="{%url 'mainpage-contact' %}">Contact</a></li>
-				<li><a href="{%url 'mainpage-highScores' %}">HighScores</a></li>
+        <li><a href="{%url 'mainpage-highScores' %}">HighScores</a></li>
 			</ul>
 		  </nav>
 			<main>
-				<h2>Contacting Dylan Kelly</h2>
-				<p class="contact">
-					If you wish to contact me you can send me an email at: <br>
-					<strong>Dylandk10@gmail.com</strong> <br><br>
-
-					I hope to hear from you soon.<br>
-					-Dylan Kelly
-				</p>
-
-
+        <h2> Current HighScores! </h2>
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Score</th>
+            </tr>
+      {% for models in model %}
+            <tr>
+              <td> {{ models.name}} </td>
+              <td> {{models.score}} </td>
+            </tr>
+      {% endfor %}
+          </table>
 			</main>
 		  <footer>Copyright &copy; Dylan Kelly 2020
 			</footer>
