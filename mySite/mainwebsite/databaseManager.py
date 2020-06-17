@@ -8,7 +8,7 @@ class Database_Manager:
         new_entry.save()
         if self.all_entries.count() > 10:
             #to keep the rows at 10 for only having 10 highscores
-            last_entry = HighScores.objects.order_by('score')[11]
+            last_entry = HighScores.objects.all().order_by('score')[11]
             last_entry.delete()
 
     def compare(self, user_score):
@@ -28,3 +28,13 @@ class Database_Manager:
                 result = 'true'
 
         return result;
+
+    #update the rank of the players before highscores is called to the front end
+    def give_rank(self):
+        ordered_highscores = HighScores.objects.all().order_by('score')
+
+        i = ordered_highscores.count()
+        for set in ordered_highscores:
+            set.rank = i
+            i -= 1
+            set.save()

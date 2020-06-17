@@ -28,11 +28,13 @@
         <h2> Current HighScores! </h2>
           <table>
             <tr>
+							<th>Rank</th>
               <th>Name</th>
               <th>Score</th>
             </tr>
       {% for models in model %}
             <tr>
+							<td> {{ models.rank }} </td>
               <td> {{ models.name}} </td>
               <td> {{models.score}} </td>
             </tr>

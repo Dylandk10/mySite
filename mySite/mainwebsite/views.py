@@ -27,7 +27,10 @@ def updateHighScores(request):
 	return HttpResponse('true')
 
 def highScores(request):
+	database_handler = Database_Manager()
+	database_handler.give_rank()
+	#order by rank so front end doesn't need to order 
 	content = {
-		'model': HighScores.objects.all()
+		'model': HighScores.objects.all().order_by('rank')
 	}
 	return render(request, 'mainwebsite/highScores.html', content)
