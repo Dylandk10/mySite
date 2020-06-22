@@ -89,6 +89,7 @@ function sendToHighScoresAjax(name) {
   success: function (data) {
       document.getElementById("nameField").style.display = "none";
       document.getElementById("highScoreBtn").style.display = "none";
+      document.getElementById("spanName").style.dispay = "none";
       document.getElementById("highScoreTitle").textContent = "Added to highscores!";
     }
   });
@@ -176,7 +177,7 @@ class BossNPC extends Npc {
 			this.color = 'GreenYellow';
 		} else {
 			this.health = 0;
-			boss.slice(boss.indexOf(this, boss.length));
+			boss.slice(boss.indexOf(this), boss.length); //check slice
       this.x = undefined;
       this.y = undefined;
 		}

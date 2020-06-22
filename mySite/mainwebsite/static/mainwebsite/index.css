@@ -3,26 +3,26 @@ header, nav, main, footer, figure, figcaption { display: block; }
 body { font-family: Verdana, Arial, sans-serif;
       background-image: url("pictures/background.jfif");
 }
-#wrapper { background-color: #F5F5F5; 
+#wrapper { background-color: #F5F5F5;
            color: #000066;
            width: 80%;
 		   margin: auto;
-} 
+}
 header { background-color: #F5F5F5;
-        color: #00005D; 
-        font-size: 150%; 
+        color: #00005D;
+        font-size: 150%;
         padding: 5px 20px 20px;
 		border-bottom: .1em solid #00005D;
 }
-h1 { margin-bottom: 0; } 
+h1 { margin-bottom: 0; }
 h5 { color: #00005D;}
 #tag { padding-right: 20px;
 	   font-size: .80em;
 	   font-style: italic;
 	   text-align: right;
 	   color: #00005D;
-}	        
-h2 { color: #00005D; 
+}
+h2 { color: #00005D;
      font-family: arial, sans-serif;
 	 font-size: 200%;
 	 text-align: center;
@@ -32,25 +32,25 @@ nav { float: left;
 	   letter-spacing:0.1em;
 	   font-weight: bold;
 	   color: #00005D;
-} 
-nav ul { list-style-type: none; 
+}
+nav ul { list-style-type: none;
          margin: 0;
          padding: 0;
 }
-nav li { 
+nav li {
 	padding: 15px;
 	border-bottom: .1em solid #00005D;
 }
-nav a { text-decoration: none; 
+nav a { text-decoration: none;
 }
 nav a:link { color: #00005D; }
 nav a:visited { color: #00005D; }
 nav a:hover {  color: #ADD8E6;}
 main { margin-left: 155px;
-        padding: 20px; 
+        padding: 20px;
         background-color: #ffffff;
         color: #000000;
-} 
+}
 
 figcaption { font-size: 80%;
                font-style: italic;
@@ -69,7 +69,7 @@ figcaption { font-size: 80%;
 	border-top: .1em solid #00005D;
 	text-align: center;
 	display: inline-block;
-	
+
 }
 .projectPic {
 	display: inline-block;
@@ -84,8 +84,8 @@ figcaption { font-size: 80%;
 }
 .projectPicPic:hover {
 	cursor: pointer;
-	width: 52%;
-	height: 52%;
+	width: 56%;
+	height: 56%;
 }
 
 /*For all the toggle ids and animation */

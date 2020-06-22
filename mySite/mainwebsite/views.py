@@ -15,21 +15,19 @@ def contact(request):
 
 def requestHighScore(request):
 	value = list(request.GET.values())[0]
-	database_handler = Database_Manager()
-	response = database_handler.compare(value)
+	response = Database_Manager.compare(value)
 	return HttpResponse(response)
 
 def updateHighScores(request):
 	score = list(request.GET.values())[0]
 	name = list(request.GET.values())[1]
-	database_handler = Database_Manager()
-	database_handler.add_highScore(name, score)
+	Database_Manager.add_highScore(name, score)
+	Database_Manager.give_rank()
 	return HttpResponse('true')
 
 def highScores(request):
-	database_handler = Database_Manager()
-	database_handler.give_rank()
-	#order by rank so front end doesn't need to order 
+	Database_Manager.give_rank()
+	#order by rank so front end doesn't need to order
 	content = {
 		'model': HighScores.objects.all().order_by('rank')
 	}

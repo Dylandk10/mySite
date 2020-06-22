@@ -7,6 +7,9 @@
 		<meta name="keywords" content="Dylan Kelly, contact Dylan Kelly">
 		<meta name="description" content="Dylan Kelly contact Page">
 		<meta name="viewport"content="width=device-width, initial-scale=1.0">
+		<meta http-equiv='cache-control' content='no-cache'>
+		<meta http-equiv='expires' content='0'>
+		<meta http-equiv='pragma' content='no-cache'>
 		<link rel="stylesheet" type="text/css" href="{% static 'mainwebsite/highScores.css' %}">
 		</head>
 	<body>
@@ -26,6 +29,7 @@
 		  </nav>
 			<main>
         <h2> Current HighScores! </h2>
+				<div id="tableHolder">
           <table>
             <tr>
 							<th>Rank</th>
@@ -40,6 +44,7 @@
             </tr>
       {% endfor %}
           </table>
+				</div>
 			</main>
 		  <footer>Copyright &copy; Dylan Kelly 2020
 			</footer>

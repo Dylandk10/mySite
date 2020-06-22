@@ -27,10 +27,7 @@ h2 { color: #00005D;
 	 text-align: center;
 }
 
-.contact {
-	border-top: .1em solid #00005D;
-	padding: 5em;
-}
+
 
     main { margin-left: 0; }
     nav { float: none; width: auto; }
@@ -44,10 +41,15 @@ nav a {
 nav a:link { color: #00005D; }
 nav a:visited { color: #00005D; }
 nav a:hover {  color: #ADD8E6;}
+
 main {
         padding: 20px;
         background-color: #ffffff;
         color: #000000;
+        text-align: center;
+}
+#tableHolder {
+  text-align: center;
 }
 td, th {
   border: .1em solid #dddddd;
