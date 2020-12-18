@@ -3,5 +3,5 @@ TODO
 2) finish progamming project section on index [DONE]
 3) add a highscores page
 4) add django backend for server [DONE]
-5) build out MySql database
-6) add bomb drop for bosses in square wars
+5) add verifier to make sure all ajax data is secure and valid
+6) make an ip tracer to grab client ips

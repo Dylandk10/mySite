@@ -33,6 +33,28 @@
 					I hope to hear from you soon.<br>
 					-Dylan Kelly
 				</p>
+				<h2>
+					Become a Member
+				</h2>
+				<p>
+					If you wish to become then please fill out the forms below. A message will be sent to
+					Dylan Kelly and he will responde via email with your acceptance or rejection leter. Please
+					leave your reason for becoming a memeber.
+				</p>
+				<form id="form">
+  					<label for="name">Name:</label>
+  					<input type="text" id="name" name="name"><br><br>
+  					<label for="email">Email:</label>
+  					<input type="text" id="email" name="email"><br><br>
+
+					<label for="message">Reason:</label><br>
+
+					<textarea id="message" name="mesage" rows="10" cols="70">
+
+					</textarea><br>
+					<button id="formSubmission">Submit</button><br>
+					<span id="notifyError">Error on Form</span>
+				</form>
 
 
 			</main>
@@ -40,4 +62,6 @@
 			</footer>
 		</div>
 	</body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="{% static 'mainwebsite/js/contact-script.js' %}" type="text/javascript"></script>
 </html>

@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .databaseManager import Database_Manager
+from .memberRequestHandler import MemberRequestHandler
 from .models import HighScores
 
 # Function based views
@@ -25,6 +26,7 @@ def updateHighScores(request):
 	Database_Manager.give_rank()
 	return HttpResponse('true')
 
+#ajax call for high scores
 def highScores(request):
 	Database_Manager.give_rank()
 	#order by rank so front end doesn't need to order
@@ -32,3 +34,16 @@ def highScores(request):
 		'model': HighScores.objects.all().order_by('rank')
 	}
 	return render(request, 'mainwebsite/highScores.html', content)
+
+#ajax call for becoming a memeber 
+def memberRequest(request):
+	name = list(request.GET.values())[0]
+	email = list(request.GET.values())[1]
+	message = list(request.GET.values())[2]
+	ip = None
+	value = True
+	if(MemberRequestHandler.validate_name_and_email_message(name, email, message)):
+		ip = MemberRequestHandler.get_client_ip(request)
+	else:
+		vlaue = False
+	return HttpResponse(value)
