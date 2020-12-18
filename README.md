@@ -18,4 +18,5 @@ Square wars is also part of this project. It is my 3rd version of the game and h
 -added contact and high-score pages\
 -fixed the square wars for smaller screens\
 -NEED TO ADD MODILE GAME DEVELOPMENT\
-There is also a working high-score system page in the website.\
+-high score tracker\
+-membership request and approval\
