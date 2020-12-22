@@ -35,15 +35,16 @@ def highScores(request):
 	}
 	return render(request, 'mainwebsite/highScores.html', content)
 
-#ajax call for becoming a memeber 
+#ajax call for becoming a memeber
 def memberRequest(request):
 	name = list(request.GET.values())[0]
 	email = list(request.GET.values())[1]
 	message = list(request.GET.values())[2]
 	ip = None
-	value = True
+	value = 'true'
 	if(MemberRequestHandler.validate_name_and_email_message(name, email, message)):
 		ip = MemberRequestHandler.get_client_ip(request)
+		Database_Manager.add_message(name, email, message, ip)
 	else:
-		vlaue = False
+		vlaue = 'false'
 	return HttpResponse(value)
